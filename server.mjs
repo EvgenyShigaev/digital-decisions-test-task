@@ -3,9 +3,12 @@ import cors from "cors";
 
 const app = express();
 const PORT = 5000;
+const allowedOrigins = ['http://localhost:5173', 'https://test-task-jet-three.vercel.app'];
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://test-task-jet-three.vercel.app'],
+  origin: allowedOrigins,
+  methods: ['GET', 'POST'],
+  credentials: true
 }));
 app.use(express.json());
 
