@@ -4,7 +4,9 @@ import cors from "cors";
 const app = express();
 const PORT = 5000;
 
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://test-task-jet-three.vercel.app'],
+}));
 app.use(express.json());
 
 const ITEMS = Array.from({ length: 1_000_000 }, (_, i) => ({
